@@ -54,7 +54,7 @@ void ResourcesManager::LoadAllAssets(const std::string& projectFolder)
 
 
 
-	PrintTime(timeStart, m_mainResourcesMap.size());
+	PrintTime(timeStart, (int)m_mainResourcesMap.size());
 }
 
 void ResourcesManager::DeleteAllasset()
