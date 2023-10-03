@@ -19,9 +19,6 @@
     <Filter Include="Source Files\Math">
       <UniqueIdentifier>{cb8ba7d0-8b70-47f5-82b3-0dd2e321318b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\NewFilter1">
-      <UniqueIdentifier>{30bb8fb6-d14a-4083-9375-ad8650b63652}</UniqueIdentifier>
-    </Filter>
     <Filter Include="LowRenderer">
       <UniqueIdentifier>{3966ea09-cc5c-476e-9041-b92fb5ffe18f}</UniqueIdentifier>
     </Filter>
