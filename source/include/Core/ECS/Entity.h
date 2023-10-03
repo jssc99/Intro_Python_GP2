@@ -5,8 +5,8 @@
 #include "UI/InspectorSelectable.h"
 #include "Core/ISerialzable/ISerialzable.h"
 
-constexpr auto ComponentNULL = 4294967295;
-constexpr auto EntityNULL = 4294967295;
+constexpr uint32_t ComponentNULL = 4294967295;
+constexpr uint32_t EntityNULL = 4294967295;
 
 class Scene;
 

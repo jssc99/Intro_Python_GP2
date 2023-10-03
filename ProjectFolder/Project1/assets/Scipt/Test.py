@@ -1,7 +1,15 @@
-import CorePython
-from CorePython import*
+'''
+import os
 
-"""
+# Change the current working directory
+os.chdir('C:/Projet/ModernOpenglGB/source/include/Core/Python/')
+
+# Now import the CorePython module
+import CorePython
+from CorePython import *
+
+'''
+'''
 
 class CamerMovement(PythonScript) : 
 
@@ -22,7 +30,6 @@ class CamerMovement(PythonScript) :
         return _CorePython.PythonScript_FixedUpdate(self, scene)
 
     def Update(self, scene : Scene):
-        t = scene.GetComponent()
         print("PYTHONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN")
 
     def LateUpdate(self, scene):
@@ -33,13 +40,8 @@ class CamerMovement(PythonScript) :
 
     def OnResizeData(self, ComponentTypeID, data):
         return _CorePython.PythonScript_OnResizeData(self, ComponentTypeID, data)
+    
+    
 
-    """
-
-
-vec = Vector2(1,0) 
-vec2 = Vector2(2,1)
-vec3 = vec - vec2 
-
-print(vec3.x)
-print(vec3.y)
+    
+    '''

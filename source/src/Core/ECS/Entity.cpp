@@ -5,7 +5,7 @@
 
 
 
-#ifndef SWIG
+
 
 
 void Entity::OnInspector(uint32_t entityID , Scene* scene) 
@@ -51,7 +51,6 @@ void Entity::OnInspector(uint32_t entityID , Scene* scene)
 	
 
 }
-#endif // !SWIG
 
 void Entity::OnSerialize(Scene* scene) const
 {

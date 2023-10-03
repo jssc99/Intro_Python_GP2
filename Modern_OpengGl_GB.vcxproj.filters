@@ -351,6 +351,9 @@
     <ClInclude Include="source\include\Ressources\PythonSource.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="source\include\Core\Python\CpyInstance.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
@@ -375,6 +378,8 @@
     <None Include="source\src\External\lib\assimp-vc143-mtd.exp" />
     <None Include="assimp-vc143-mtd.dll" />
     <None Include="source\src\External\lib\yaml-cppd.pdb" />
+    <None Include="ProjectFolder\Project1\assets\Scipt\atest.py" />
+    <None Include="ProjectFolder\Project1\assets\Scipt\Test.py" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Log\LOG .txt" />
@@ -656,6 +661,9 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="source\src\Ressources\PythonSource.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="source\src\Core\Python\CpyInstance.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>

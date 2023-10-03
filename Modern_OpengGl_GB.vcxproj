@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="source\include\Core\Python\CpyInstance.h" />
     <ClInclude Include="source\include\Ressources\PythonSource.h" />
     <ClInclude Include="source\include\Core\Python\PythonObject.h" />
     <ClInclude Include="source\include\Core\ECS\PythonScript.h" />
@@ -288,6 +289,8 @@
     <None Include="assets\Shader\StencilTest\StencilTest.frag" />
     <None Include="assets\Shader\StencilTest\StencilTest.vertex" />
     <None Include="assimp-vc143-mtd.dll" />
+    <None Include="ProjectFolder\Project1\assets\Scipt\atest.py" />
+    <None Include="ProjectFolder\Project1\assets\Scipt\Test.py" />
     <None Include="source\include\External\assimp\assimp-vc143-mt.dll" />
     <None Include="source\src\External\lib\assimp-vc143-mtd.exp" />
     <None Include="source\src\External\lib\yaml-cppd.pdb" />
@@ -299,6 +302,7 @@
     <ResourceCompile Include="Modern_OpengGl_GB.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\src\Core\Python\CpyInstance.cpp" />
     <ClCompile Include="source\src\Ressources\PythonSource.cpp" />
     <ClCompile Include="source\src\Core\Python\PythonObject.cpp" />
     <ClCompile Include="source\src\Core\ECS\PythonScript.cpp" />

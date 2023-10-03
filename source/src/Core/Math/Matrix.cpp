@@ -78,7 +78,7 @@ Matrix Matrix::operator+(const Matrix& maxtrix)
 	return newMatrix;
 }
 
-Matrix Matrix::operator*(const float value)// manque un truc la non ?
+Matrix Matrix::operator*(const float value)
 {
 	Matrix newMatrix = Matrix(this->Size() ,this->mData[0].Size());
 
@@ -86,11 +86,11 @@ Matrix Matrix::operator*(const float value)// manque un truc la non ?
 	{
 		for (int k = 0; k < newMatrix[i].Size(); k++)
 		{
-			newMatrix = mData[i][k] * value;
+			newMatrix[i][k] = mData[i][k] * value;
 		}
 	}
 
-	return Matrix(); 
+	return newMatrix;
 }
 
 Vector Matrix::operator*(const Vector& vector)

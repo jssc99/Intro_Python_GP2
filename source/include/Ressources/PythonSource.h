@@ -1,9 +1,7 @@
 #pragma once
 #include <Core/CoreEngine.h>
 #include "Ressources/IResources/IResource.h"
-#include<Python.h>
-#include <conio.h>
-
+#include "Core/Python/CpyInstance.h"
 
 
 
@@ -25,19 +23,27 @@ public :
 		
 	 void InitResource() override 
 	 {
+
 		 Py_Initialize();
+			
+		 PyRun_SimpleString("import sys");
+		 PyRun_SimpleString("sys.path.append(\".\")");
+		 PyRun_SimpleString("sys.path.append(\".\")");
+		 PyRun_SimpleString("import os");
+		 PyRun_SimpleString("current_directory = os.getcwd()");
+		 PyRun_SimpleString("print(current_directory)");
 
 
-		 std::string l = EraseFormat(path.generic_string());
+		 PyRun_SimpleString("current_directory = os.getcwd()");
+		 PyRun_SimpleString("os.chdir('C:/Projet/ModernOpenglGB/ProjectFolder/Project1/assets/Scipt/')");
+		 PyRun_SimpleString("current_directory = os.getcwd()");
+		 PyRun_SimpleString("print(current_directory)");
+
+
+		 std::string l = path.relative_path().stem().generic_string();
 		 m_pName = PyUnicode_FromString(l.c_str());
 
-		 Py_ssize_t size = 0;
-		 char const* pc = PyUnicode_AsUTF8AndSize(m_pName, &size);
-		 std::string s;
-		 if (pc)
-			 s = std::string(pc, size);
-
-
+	
 		 m_pModule = PyImport_Import(m_pName);
 
 
