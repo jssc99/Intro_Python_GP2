@@ -58,9 +58,6 @@ class _SwigNonDynamicMeta(type):
     __setattr__ = _swig_setattr_nondynamic_class_variable(type.__setattr__)
 
 
-
-def GetComponent_Transform(entity):
-    return _CorePython.GetComponent_Transform(entity)
 class SwigPyIterator(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
 
@@ -1829,8 +1826,8 @@ class Mesh(object):
     vertexVector = property(_CorePython.Mesh_vertexVector_get, _CorePython.Mesh_vertexVector_set)
     indexVector = property(_CorePython.Mesh_indexVector_get, _CorePython.Mesh_indexVector_set)
 
-    def Init(self):
-        return _CorePython.Mesh_Init(self)
+    def InitResource(self):
+        return _CorePython.Mesh_InitResource(self)
 
 # Register Mesh in _CorePython:
 _CorePython.Mesh_swigregister(Mesh)
@@ -1838,8 +1835,8 @@ class Texture(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
 
-    def Init(self):
-        return _CorePython.Texture_Init(self)
+    def InitResource(self):
+        return _CorePython.Texture_InitResource(self)
 
     def BindTexture(self):
         return _CorePython.Texture_BindTexture(self)
@@ -1992,8 +1989,8 @@ class PythonScript(IEcsSystem):
     def OnResizeData(self, ComponentTypeID, data):
         return _CorePython.PythonScript_OnResizeData(self, ComponentTypeID, data)
 
-    def __init__(self, FilePath):
-        _CorePython.PythonScript_swiginit(self, _CorePython.new_PythonScript(FilePath))
+    def __init__(self, _pythonSource):
+        _CorePython.PythonScript_swiginit(self, _CorePython.new_PythonScript(_pythonSource))
     __swig_destroy__ = _CorePython.delete_PythonScript
 
 # Register PythonScript in _CorePython:

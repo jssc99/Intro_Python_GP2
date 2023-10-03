@@ -58,6 +58,7 @@
     <ClCompile Include="..\source\src\Ressources\RessourcesManager\RessourcesManager.cpp" />
     <ClCompile Include="..\source\src\Ressources\Shader\Shader.cpp" />
     <ClCompile Include="..\source\src\Ressources\Texture\Texture.cpp" />
+    <ClCompile Include="CorePython_wrap.cxx" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -113,15 +114,15 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetExt>.pyd</TargetExt>
-    <IncludePath>$(Python)\include;C:\Program Files\Python37\include;$(SolutionDir)\source\Include\External;$(SolutionDir)\source\Include\Core\Debug;$(IncludePath)</IncludePath>
-    <LibraryPath>$(Python)\libs;C:\Program Files\Python37\libs;$(SolutionDir)\source\src\External\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\source\Include\External;$(SolutionDir)\source\Include\Core\Debug;$(Python)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(Python)\libs;$(SolutionDir)\source\src\External\lib;$(LibraryPath)</LibraryPath>
     <TargetName>_CorePython</TargetName>
     <OutDir>$(ProjectDir)$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <TargetExt>.pyd</TargetExt>
-    <IncludePath>$(Python)\include;C:\Program Files\Python37\include;$(SolutionDir)\source\Include\External;$(SolutionDir)\source\Include\Core\Debug;$(IncludePath)</IncludePath>
-    <LibraryPath>$(Python)\libs;C:\Program Files\Python37\libs;$(SolutionDir)\source\src\External\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\source\Include\External;$(SolutionDir)\source\Include\Core\Debug;$(Python)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(Python)\libs;$(SolutionDir)\source\src\External\lib;$(LibraryPath)</LibraryPath>
     <TargetName>_CorePython</TargetName>
     <OutDir>$(ProjectDir)$(Configuration)\</OutDir>
   </PropertyGroup>

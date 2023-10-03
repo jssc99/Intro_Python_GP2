@@ -1,6 +1,7 @@
 import CorePython
 from CorePython import*
 
+"""
 
 class CamerMovement(PythonScript) : 
 
@@ -33,3 +34,12 @@ class CamerMovement(PythonScript) :
     def OnResizeData(self, ComponentTypeID, data):
         return _CorePython.PythonScript_OnResizeData(self, ComponentTypeID, data)
 
+    """
+
+
+vec = Vector2(1,0) 
+vec2 = Vector2(2,1)
+vec3 = vec - vec2 
+
+print(vec3.x)
+print(vec3.y)

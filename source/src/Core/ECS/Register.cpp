@@ -132,15 +132,22 @@ void Register::RemoveComponentInternal(uint32_t componentTypeID, Entity* entity)
 		return;
 	}
 
+
+	Entity* entitylast = nullptr;
+	entitylast = GetEntiesById(lastComp->entityID);
+
+	if (entitylast == nullptr)
+		throw std::runtime_error("Entity not found for lastComp->entityID");
+
+
 	memcpy(destComp, lastComp, sizeOfComponent);
-	Entity* entitylast = GetEntiesById(lastComp->entityID);
+	
 	entitylast->entityComponents.at(componentTypeID) = index;
 	dataArray.resize(lastIndex);
 
 	RemoveComponentEntity(entity, componentTypeID);
 
 	TriggerOnresizeDataEvent(componentTypeID, &dataArray);
-
 	
 }
 

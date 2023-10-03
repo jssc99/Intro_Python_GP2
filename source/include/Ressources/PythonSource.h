@@ -4,21 +4,41 @@
 #include<Python.h>
 #include <conio.h>
 
+
+
+
 class PythonSource : public IResource  
 {
 public : 
 
+	std::string EraseFormat(const fs::path& path) 
+	{
+		std::string returnValue;
+		std::string baseValue = path.generic_string();
+		for (size_t i = 0; i < baseValue.find_last_of('.'); i++)
+		{
+			returnValue.push_back(baseValue[i]);
+		}
+		return returnValue;
+	}
+
+		
 	 void InitResource() override 
 	 {
-		 return; 
-
 		 Py_Initialize();
-		 //PyRun_SimpleString("import sys");
-		 //PyRun_SimpleString("sys.path.append(\".\")");
-		 //PyRun_SimpleString("sys.path.append(\"../PythonToEmbed/\")");
 
-		// m_pName = PyUnicode_FromString(path.generic_string().c_str());
-		// m_pModule = PyImport_Import("CorePython");
+
+		 std::string l = EraseFormat(path.generic_string());
+		 m_pName = PyUnicode_FromString(l.c_str());
+
+		 Py_ssize_t size = 0;
+		 char const* pc = PyUnicode_AsUTF8AndSize(m_pName, &size);
+		 std::string s;
+		 if (pc)
+			 s = std::string(pc, size);
+
+
+		 m_pModule = PyImport_Import(m_pName);
 
 
 		 if (m_pName == nullptr || m_pModule == nullptr)
@@ -35,7 +55,7 @@ public :
 	PythonSource() = delete;
 	PythonSource(const fs::path& FilePath) : path(FilePath)
 	{
-		
+	
 
 	}
 
@@ -65,5 +85,6 @@ private :
 	PyObject* m_pName = nullptr;
 	PyObject* m_pModule = nullptr;
 	const fs::path path;
+
 };
 
