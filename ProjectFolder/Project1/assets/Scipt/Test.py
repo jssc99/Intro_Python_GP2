@@ -1,5 +1,4 @@
-'''
-import os
+'''import os
 
 # Change the current working directory
 os.chdir('C:/Projet/ModernOpenglGB/source/include/Core/Python/')
@@ -7,8 +6,8 @@ os.chdir('C:/Projet/ModernOpenglGB/source/include/Core/Python/')
 # Now import the CorePython module
 import CorePython
 from CorePython import *
-
 '''
+
 '''
 
 class CamerMovement(PythonScript) : 

@@ -23,7 +23,7 @@ public :
 		
 	 void InitResource() override 
 	 {
-
+		 
 		 Py_Initialize();
 			
 		 PyRun_SimpleString("import sys");
@@ -36,8 +36,7 @@ public :
 
 		 PyRun_SimpleString("current_directory = os.getcwd()");
 		 PyRun_SimpleString("os.chdir('C:/Projet/ModernOpenglGB/ProjectFolder/Project1/assets/Scipt/')");
-		 PyRun_SimpleString("current_directory = os.getcwd()");
-		 PyRun_SimpleString("print(current_directory)");
+		;
 
 
 		 std::string l = path.relative_path().stem().generic_string();
@@ -49,6 +48,9 @@ public :
 
 		 if (m_pName == nullptr || m_pModule == nullptr)
 			 throw std::bad_exception();
+
+
+		 Py_Finalize();
 	 }
 	 
 

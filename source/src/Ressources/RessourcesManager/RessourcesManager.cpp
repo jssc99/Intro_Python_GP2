@@ -182,14 +182,25 @@ void ResourcesManager::LoadModel(std::filesystem::path path)
     }
 }
 
+bool IsPythonCacheFile(const fs::path& filePath) {
+	return filePath.extension() == ".pyc";
+}
+
+
 void ResourcesManager::LoadShader(std::filesystem::path path)
 {
 	std::string vertexShader;
 	std::string fragmentShader;
 	std::string geometry;
-
-	for (const auto& entry : fs::directory_iterator(path))
+	
+	for (const fs::directory_entry& entry : fs::directory_iterator(path))
 	{
+		const auto permissions = fs::status(entry.path()).permissions();
+
+		// Skip Python cache files
+		if (IsPythonCacheFile(entry.path()))
+			continue;
+
 
 		if (IsThisValidForThisFormat(entry.path().string(), vertexShaderFormat))
 		{
@@ -231,13 +242,16 @@ void ResourcesManager::LookFiles(fs::path _path)
 	
 	for (const auto& entry : fs::directory_iterator(_path))
 	{
+		if (entry.path().stem().generic_string() == "__pycache__")
+			continue;
+
 		if (entry.is_directory())
 		{
 			LookFiles(entry.path());
 			LoadShader(entry.path());
 
 		}
-		LoadScript(entry.path());
+		LoadScript(entry.path().c_str());
 		LoadTexture(entry.path().c_str());
 		LoadModel(entry.path().c_str());
 		

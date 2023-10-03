@@ -132,6 +132,10 @@
       <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(Pyton)\libs\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -153,6 +157,10 @@
       <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(Pyton)\libs\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="source\include\Core\Python\CpyInstance.h" />
@@ -291,6 +299,8 @@
     <None Include="assimp-vc143-mtd.dll" />
     <None Include="ProjectFolder\Project1\assets\Scipt\atest.py" />
     <None Include="ProjectFolder\Project1\assets\Scipt\Test.py" />
+    <None Include="source\include\Core\Python\CorePython.py" />
+    <None Include="source\include\Core\Python\_CorePython.pyd" />
     <None Include="source\include\External\assimp\assimp-vc143-mt.dll" />
     <None Include="source\src\External\lib\assimp-vc143-mtd.exp" />
     <None Include="source\src\External\lib\yaml-cppd.pdb" />

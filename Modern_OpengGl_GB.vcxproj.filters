@@ -380,6 +380,8 @@
     <None Include="source\src\External\lib\yaml-cppd.pdb" />
     <None Include="ProjectFolder\Project1\assets\Scipt\atest.py" />
     <None Include="ProjectFolder\Project1\assets\Scipt\Test.py" />
+    <None Include="source\include\Core\Python\_CorePython.pyd" />
+    <None Include="source\include\Core\Python\CorePython.py" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Log\LOG .txt" />
