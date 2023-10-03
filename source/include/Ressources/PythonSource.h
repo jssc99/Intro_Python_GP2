@@ -17,8 +17,8 @@ public :
 		 //PyRun_SimpleString("sys.path.append(\".\")");
 		 //PyRun_SimpleString("sys.path.append(\"../PythonToEmbed/\")");
 
-		 m_pName = PyUnicode_FromString(path.generic_string().c_str());
-		 m_pModule = PyImport_Import("CorePython");
+		// m_pName = PyUnicode_FromString(path.generic_string().c_str());
+		// m_pModule = PyImport_Import("CorePython");
 
 
 		 if (m_pName == nullptr || m_pModule == nullptr)
@@ -35,7 +35,7 @@ public :
 	PythonSource() = delete;
 	PythonSource(const fs::path& FilePath) : path(FilePath)
 	{
-	
+		
 
 	}
 
