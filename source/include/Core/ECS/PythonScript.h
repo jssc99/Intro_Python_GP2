@@ -4,26 +4,56 @@
 #include "Core/ECS/IECSSystem.h"
 #include "Core/Python/PythonObject.h"
 #include "Ressources/IResources/IResource.h"
+#include "Ressources/PythonSource.h"
 
-
-class PythonScript : public IResource,public IEcsSystem
+class PythonScript :public IEcsSystem
 {
 public:
 
-
-	virtual void Init(Scene* scene) override;
-	virtual void Awake(Scene* scene) override;
-	virtual void Start(Scene* scene) override;
-	virtual void OnDrawGizmo(Scene* scene) override;
-	virtual void FixedUpdate(Scene* scene) override;
-	virtual void Update(Scene* scene) override;
-	virtual void LateUpdate(Scene* scene) override;
-	virtual void Render(Shader& shader, Scene* scene) override;
-	virtual void OnResizeData(uint32_t ComponentTypeID, std::vector<uint8_t>* data) override;
+	void Init(Scene* scene) override
+	{
+		pythonSource->CallFunction("Init");
+	}
+	void Awake(Scene* scene) override
+	{
+		pythonSource->CallFunction("Awake");
+	}
+	void Start(Scene* scene) override
+	{
+		pythonSource->CallFunction("Start");
+	}
+	void OnDrawGizmo(Scene* scene) override
+	{
+		pythonSource->CallFunction("OnDrawGizmo");
+	}
+	void FixedUpdate(Scene* scene) override
+	{
+		pythonSource->CallFunction("FixedUpdate");
+	}
+	void Update(Scene* scene) override
+	{
+		pythonSource->CallFunction("Update");
+	}
+	void LateUpdate(Scene* scene) override
+	{
+		pythonSource->CallFunction("LateUpdate");
+	}
+	void Render(Shader& shader, Scene* scene) override
+	{
+		pythonSource->CallFunction("Render");
+	}
+	void OnResizeData(uint32_t ComponentTypeID, std::vector<uint8_t>* data) override
+	{
+		pythonSource->CallFunction("OnResizeData");
+	}
 
 
 	PythonScript() = delete;
-	PythonScript(const fs::path& FilePath);
+	PythonScript(PythonSource* _pythonSource) : pythonSource(_pythonSource)
+	{
 
+	};
+private:
+	PythonSource* pythonSource = nullptr;
 };
 

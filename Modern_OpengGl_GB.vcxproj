@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="source\include\Ressources\PythonSource.h" />
     <ClInclude Include="source\include\Core\Python\PythonObject.h" />
     <ClInclude Include="source\include\Core\ECS\PythonScript.h" />
     <ClInclude Include="source\include\Core\Debug\AssertClass.h" />
@@ -298,6 +299,7 @@
     <ResourceCompile Include="Modern_OpengGl_GB.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\src\Ressources\PythonSource.cpp" />
     <ClCompile Include="source\src\Core\Python\PythonObject.cpp" />
     <ClCompile Include="source\src\Core\ECS\PythonScript.cpp" />
     <ClCompile Include="source\src\Core\ECS\Scene.cpp" />

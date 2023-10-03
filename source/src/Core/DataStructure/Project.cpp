@@ -166,7 +166,8 @@ void Project::InitScene()
 	Cube2rdr->material.diffuse = *resourcesManager.GetElement<Texture>("Viking_room.png");
 	Cube2rdr->material.specular = *resourcesManager.GetElement<Texture>("Viking_room.png");
 
-	PythonScript* pt = resourcesManager.GetElement<PythonScript>("CorePython.py");
+	PythonSource* pySource = resourcesManager.GetElement<PythonSource>("Test.py");
+	PythonScript* pt = new PythonScript(pySource);
 	currentScene->AddSystem(pt);
 
 	currentScene->Init();

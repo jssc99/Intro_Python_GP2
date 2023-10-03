@@ -12,8 +12,7 @@
 #include "Ressources/CubeMaps/CubeMaps.h"
 #include<ostream>
 #include "App/App.h"
-#include "Core/ECS/PythonScript.h"
-
+#include "Ressources/PythonSource.h"
 
 void PrintTime(std::chrono::system_clock::time_point& start,int mapzize)
 {
@@ -218,7 +217,7 @@ void ResourcesManager::LoadScript(std::filesystem::path path)
 {
 	if (ResourcesManager::IsPythonScript(path.generic_string()))
 	{
-		Create<PythonScript>(path);
+		Create<PythonSource>(path);
 
 	}
 }
