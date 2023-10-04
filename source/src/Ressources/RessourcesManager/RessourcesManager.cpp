@@ -41,6 +41,9 @@ void ResourcesManager::LoadAllAssets(const std::string& projectFolder)
 		"ProjectFolder/Project1/assets/cube_maps/skybox/SkySkybox/back.jpg",
 
 	};
+
+
+
 	CubeMaps* SkySkybox = new CubeMaps(cubemapsSkyString);
 	PushBackElement<CubeMaps>("SkySkybox", SkySkybox);
 

@@ -1,14 +1,13 @@
 
 import sys
-sys.path.append('.');
 sys.path.append('C:/Projet/ModernOpenglGB/source/include/Core/Python')
-import _CorePython
+import CorePython
 print("PYTHONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN")
 
 import importlib.util
 spam_spec = importlib.util.find_spec("CorePython")
 
-cam = _CorePython.Camera()
+cam = CorePython.Camera()
 print(cam)
 
 def CallString2() : 

@@ -147,7 +147,10 @@
     <ClCompile Include="..\source\src\Core\Debug\Imgui\imgui_widgets.cpp">
       <Filter>Source Files\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="CorePython_wrap.cxx">
+    <ClCompile Include="TestPython_wrap.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\src\Core\Python\TestPython.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

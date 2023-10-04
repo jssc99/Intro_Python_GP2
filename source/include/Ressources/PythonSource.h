@@ -8,6 +8,8 @@
 class PythonSource : public IResource  
 {
 public : 
+	static inline std::string abpass = "C:/Projet/ModernOpenglGB/";
+
 
 	std::string EraseFormat(const fs::path& path) 
 	{
@@ -24,33 +26,37 @@ public :
 	 void InitResource() override 
 	 {
 		 
-		 Py_Initialize();
 			
+		 Py_Initialize();
+
+		// add Core Python c++ to sys path
 		 PyRun_SimpleString("import sys");
-		 PyRun_SimpleString("sys.path.append(\".\")");
-		 PyRun_SimpleString("sys.path.append(\".\")");
 		 PyRun_SimpleString("import os");
-		 PyRun_SimpleString("current_directory = os.getcwd()");
+		 PyRun_SimpleString("sys.path.append(\".\")");
+		 PyRun_SimpleString("sys.path.append(\"C:/Projet/ModernOpenglGB/source/include/Core/Python\")");
+		 PyRun_SimpleString("print(sys.path)");
+
+		 std::string l = path.parent_path().generic_string();
+		 std::string moduleName = path.stem().generic_string();
+		 std::string commaLine = "sys.path.append(\"" + l + "\")";
+		
+		 std::string currentDir = "current_directory = os.getcwd() + \"/" + l + "\"";
+		 PyRun_SimpleString(currentDir.c_str());
 		 PyRun_SimpleString("print(current_directory)");
 
+		 PyRun_SimpleString("sys.path.append(current_directory)"); 
+		 PyRun_SimpleString("print(sys.path)");
+		
 
-		 PyRun_SimpleString("current_directory = os.getcwd()");
-		 PyRun_SimpleString("os.chdir('C:/Projet/ModernOpenglGB/ProjectFolder/Project1/assets/Scipt/')");
-		;
-
-
-		 std::string l = path.relative_path().stem().generic_string();
-		 m_pName = PyUnicode_FromString(l.c_str());
-
-	
+		 m_pName = PyUnicode_FromString(moduleName.c_str());
+		 const char* utf8String = PyUnicode_AsUTF8(m_pName);
 		 m_pModule = PyImport_Import(m_pName);
-
 
 		 if (m_pName == nullptr || m_pModule == nullptr)
 			 throw std::bad_exception();
 
-
 		 Py_Finalize();
+
 	 }
 	 
 
