@@ -1,9 +1,19 @@
 %module CorePython
 
 %{
+
+
+	#include "../source/include/Core/Math/Vector2.h"
+    #include "../source/include/Core/Math/Vector3.h"
+    #include "../source/include/Core/Math/Vector4.h"
+    #include "../source/include/Core/Math/Matrix2X2.h"
+    #include "../source/include/Core/Math/Matrix3X3.h"
+    #include "../source/include/Core/Math/Matrix4X4.h"
+
+
+
     #include "../source/include/External/glad/glad.h"
 
-    #include "../source/include/Core/ECS/Register.h"
     #include "../source/include/Core/ECS/Register.h"
 
     
@@ -23,13 +33,6 @@
     #include "../source/include/Ressources/Mesh/Mesh.h"
     #include "../source/include/Ressources/Texture/Texture.hpp"
 
-
-	#include "../source/include/Core/Math/Vector2.h"
-    #include "../source/include/Core/Math/Vector3.h"
-    #include "../source/include/Core/Math/Vector4.h"
-    #include "../source/include/Core/Math/Matrix2X2.h"
-    #include "../source/include/Core/Math/Matrix3X3.h"
-    #include "../source/include/Core/Math/Matrix4X4.h"
 
     #include "../source/include/LowRenderer/Cam/Camera.h"
 
@@ -53,6 +56,14 @@ Transform* Scene::GetComponent_Transform(Entity* entity) {
 %include <std_pair.i>
 %include <std_map.i>
 %include "std_unordered_map.i"
+
+%include "../source/include/Core/Math/Vector2.h"
+%include "../source/include/Core/Math/Vector3.h"
+%include "../source/include/Core/Math/Vector4.h"
+%include "../source/include/Core/Math/Matrix2X2.h"
+%include "../source/include/Core/Math/Matrix3X3.h"
+%include "../source/include/Core/Math/Matrix4X4.h"
+
 
 %include "../source/include/External/glad/glad.h"
 
@@ -86,12 +97,7 @@ Transform* Scene::GetComponent_Transform(Entity* entity) {
 
 
 
-%include "../source/include/Core/Math/Vector2.h"
-%include "../source/include/Core/Math/Vector3.h"
-%include "../source/include/Core/Math/Vector4.h"
-%include "../source/include/Core/Math/Matrix2X2.h"
-%include "../source/include/Core/Math/Matrix3X3.h"
-%include "../source/include/Core/Math/Matrix4X4.h"
+
 
 
 

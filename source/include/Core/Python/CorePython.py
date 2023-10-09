@@ -8,7 +8,6 @@ from sys import version_info as _swig_python_version_info
 # Import the low-level C/C++ module
 if __package__ or "." in __name__:
     from . import _CorePython
-
 else:
     import _CorePython
 
@@ -16,7 +15,6 @@ try:
     import builtins as __builtin__
 except ImportError:
     import __builtin__
-
 
 def _swig_repr(self):
     try:
@@ -2623,6 +2621,9 @@ class Camera(object):
     def GetTransform(self):
         return _CorePython.Camera_GetTransform(self)
     cam = property(_CorePython.Camera_cam_get, _CorePython.Camera_cam_set)
+
+    def GetMainCamera(self):
+        return _CorePython.Camera_GetMainCamera(self)
 
     def __init__(self):
         _CorePython.Camera_swiginit(self, _CorePython.new_Camera())

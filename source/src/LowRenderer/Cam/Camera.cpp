@@ -167,6 +167,9 @@ void Camera::CameraRotation()
 
 void Camera::CameraMovment( GLFWwindow* context,const ImGuiIO& io )
 {
+	return;
+
+
 	float velocity = cameraVelocity *  io.DeltaTime;
 
 	if (IskeyPress(context, GLFW_KEY_W))

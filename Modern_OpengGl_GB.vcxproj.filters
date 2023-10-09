@@ -381,6 +381,8 @@
     <None Include="source\include\Core\Python\_CorePython.pyd" />
     <None Include="source\include\Core\Python\CorePython.py" />
     <None Include="ProjectFolder\Project1\assets\Scipt\Test.py" />
+    <None Include="ProjectFolder\Project1\assets\Scipt\_CorePython.pyd" />
+    <None Include="ProjectFolder\Project1\assets\Scipt\CorePython.py" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Log\LOG .txt" />

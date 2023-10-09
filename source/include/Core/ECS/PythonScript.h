@@ -12,37 +12,36 @@ public:
 
 	void Init(Scene* scene) override
 	{
-		// TO DO Fix
-		return;
-		pythonSource->CallFunction("Init");
+	
+		pythonSource->CallFunction("Init",scene);
 	}
 	void Awake(Scene* scene) override
 	{
-		pythonSource->CallFunction("Awake");
+		pythonSource->CallFunction("Awake",scene);
 	}
 	void Start(Scene* scene) override
 	{
-		pythonSource->CallFunction("Start");
+		pythonSource->CallFunction("Start",scene);
 	}
 	void OnDrawGizmo(Scene* scene) override
 	{
-		pythonSource->CallFunction("OnDrawGizmo");
+		pythonSource->CallFunction("OnDrawGizmo",scene);
 	}
 	void FixedUpdate(Scene* scene) override
 	{
-		pythonSource->CallFunction("FixedUpdate");
+		pythonSource->CallFunction("FixedUpdate",scene);
 	}
 	void Update(Scene* scene) override
 	{
-		pythonSource->CallFunction("Update");
+		pythonSource->CallFunction("Update",scene);
 	}
 	void LateUpdate(Scene* scene) override
 	{
-		pythonSource->CallFunction("LateUpdate");
+		pythonSource->CallFunction("LateUpdate",scene);
 	}
 	void Render(Shader& shader, Scene* scene) override
 	{
-		pythonSource->CallFunction("Render");
+		pythonSource->CallFunction("Render",scene);
 	}
 	void OnResizeData(uint32_t ComponentTypeID, std::vector<uint8_t>* data) override
 	{
@@ -50,7 +49,6 @@ public:
 		// TO DO DONT ZWORK
 		return;
 
-		pythonSource->CallFunction("OnResizeData");
 	}
 
 

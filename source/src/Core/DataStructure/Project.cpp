@@ -32,9 +32,12 @@
 #include "Core/ECS/PythonScript.h"
 
 #include"App/App.h"
+#include<Python.h>
+
 
 void Project::Update()
 {
+	
 
 	std::vector<InputEvent*> inputsEvents;
 	shaderShadowMapping = resourcesManager.GetElement<Shader>("ShadowMapping");
@@ -67,12 +70,21 @@ void Project::Update()
 
 	dockingSystem.UpdateDockSpace(*this, inputsEvents);
 
+
 }
 
 
 
 Project::Project() 
 {
+	Py_Initialize();
+
+	PyRun_SimpleString("import sys");
+	PyRun_SimpleString("import os");
+	PyRun_SimpleString("sys.path.append(\".\")");
+	PyRun_SimpleString("sys.path.append(\"C:/Projet/ModernOpenglGB/source/include/Core/Python\")");
+
+
 	resourcesManager.LoadAllAssets("ProjectFolder/Project1");
 	currentScene = new Scene("Scene 0");
 	currentScene->currentProject = this;
@@ -90,6 +102,8 @@ Project::Project()
 
 Project::~Project()
 {
+	Py_Finalize();
+
 	delete currentScene;
 }
 
@@ -106,6 +120,10 @@ Project::~Project()
 void Project::InitScene()
 {
 	
+	//PyRun_SimpleString("sys.path.append(\".\")");
+	//PyRun_SimpleString("sys.path.append(\"C:/Projet/ModernOpenglGB/source/include/Core/Python\")");
+
+
 	// UPDATE PHYSICS FIRST
 	currentScene->AddSystem(new PhysicsSystem());
 	// Check Collsiion for nextframe

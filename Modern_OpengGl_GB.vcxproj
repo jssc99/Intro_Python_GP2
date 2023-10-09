@@ -297,7 +297,9 @@
     <None Include="assets\Shader\StencilTest\StencilTest.frag" />
     <None Include="assets\Shader\StencilTest\StencilTest.vertex" />
     <None Include="assimp-vc143-mtd.dll" />
+    <None Include="ProjectFolder\Project1\assets\Scipt\CorePython.py" />
     <None Include="ProjectFolder\Project1\assets\Scipt\Test.py" />
+    <None Include="ProjectFolder\Project1\assets\Scipt\_CorePython.pyd" />
     <None Include="source\include\Core\Python\CorePython.py" />
     <None Include="source\include\Core\Python\_CorePython.pyd" />
     <None Include="source\include\External\assimp\assimp-vc143-mt.dll" />

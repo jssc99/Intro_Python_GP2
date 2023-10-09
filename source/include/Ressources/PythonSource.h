@@ -2,7 +2,7 @@
 #include <Core/CoreEngine.h>
 #include "Ressources/IResources/IResource.h"
 #include "Core/Python/CpyInstance.h"
-
+#include "Core/ECS/Scene.h"
 
 
 class PythonSource : public IResource  
@@ -25,16 +25,11 @@ public :
 		
 	 void InitResource() override 
 	 {
-		 return;
 			
-		 Py_Initialize();
 
 		// add Core Python c++ to sys path
-		 PyRun_SimpleString("import sys");
-		 PyRun_SimpleString("import os");
-		 PyRun_SimpleString("sys.path.append(\".\")");
-		 PyRun_SimpleString("sys.path.append(\"C:/Projet/ModernOpenglGB/source/include/Core/Python\")");
-		 PyRun_SimpleString("print(sys.path)");
+		 
+
 
 		 std::string l = path.parent_path().generic_string();
 		 std::string moduleName = path.stem().generic_string();
@@ -42,10 +37,10 @@ public :
 		
 		 std::string currentDir = "current_directory = os.getcwd() + \"/" + l + "\"";
 		 PyRun_SimpleString(currentDir.c_str());
-		 PyRun_SimpleString("print(current_directory)");
+		// PyRun_SimpleString("print(current_directory)");
 
 		 PyRun_SimpleString("sys.path.append(current_directory)"); 
-		 PyRun_SimpleString("print(sys.path)");
+		 //PyRun_SimpleString("print(sys.path)");
 		
 
 		 m_pName = PyUnicode_FromString(moduleName.c_str());
@@ -55,7 +50,7 @@ public :
 		 if (m_pName == nullptr || m_pModule == nullptr)
 			 throw std::bad_exception();
 
-		 Py_Finalize();
+
 
 	 }
 	 
@@ -73,42 +68,21 @@ public :
 
 	}
 
-	void CallFunction(std::string funcame)
-	{
-	
+	void CallFunction(std::string funcame,Scene* scene)
+	{	
 
-		Py_Initialize();
-		PyRun_SimpleString("import sys");
-		PyRun_SimpleString("import os");
-		PyRun_SimpleString("sys.path.append(\".\")");
-		PyRun_SimpleString("sys.path.append(\"C:/Projet/ModernOpenglGB/source/include/Core/Python\")");
-		PyRun_SimpleString("print(sys.path)");
+		PyObject* pFunc = PyObject_GetAttrString(m_pModule, funcame.c_str());
+		PyObject* pScene = PyCapsule_New(scene, nullptr, nullptr);
+		PyObject* pArgs = PyTuple_Pack(1, pScene);
 
-		std::string l = path.parent_path().generic_string();
-		std::string moduleName = path.stem().generic_string();
-		std::string commaLine = "sys.path.append(\"" + l + "\")";
+		if (pFunc == nullptr || !PyCallable_Check(pFunc))
+		{
+			return;
+		}
+		PyObject_CallObject(pFunc, pArgs);
 
-		std::string currentDir = "current_directory = os.getcwd() + \"/" + l + "\"";
-		PyRun_SimpleString(currentDir.c_str());
-		PyRun_SimpleString("print(current_directory)");
+		Py_XDECREF(pArgs);
 
-		PyRun_SimpleString("sys.path.append(current_directory)");
-		PyRun_SimpleString("print(sys.path)");
-
-		PyObject* pName = nullptr;
-		PyObject* pModule = nullptr;
-		pName = PyUnicode_FromString(moduleName.c_str());
-		const char* utf8String = PyUnicode_AsUTF8(pName);
-		std::string debuf = utf8String;
-		pModule = PyImport_Import(pName);
-
-		PyObject* pFunc = PyObject_GetAttrString(pModule, funcame.c_str());
-
-
-		PyObject_CallObject(pFunc, NULL);
-		
-
-		Py_Finalize();
 
 	}
 
