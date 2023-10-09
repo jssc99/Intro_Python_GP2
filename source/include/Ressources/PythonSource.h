@@ -25,7 +25,7 @@ public :
 		
 	 void InitResource() override 
 	 {
-		 
+		 return;
 			
 		 Py_Initialize();
 
@@ -73,16 +73,43 @@ public :
 
 	}
 
-	void CallFunction(const std::string& funcame)
+	void CallFunction(std::string funcame)
 	{
-		if (IsNull())
-			return; 
+	
 
-		PyObject* pFunc = PyObject_GetAttrString(m_pModule, funcame.c_str());
-		if (pFunc && PyCallable_Check(m_pName))
-		{
-			PyObject* pValue = PyObject_CallObject(pFunc, NULL);
-		}
+		Py_Initialize();
+		PyRun_SimpleString("import sys");
+		PyRun_SimpleString("import os");
+		PyRun_SimpleString("sys.path.append(\".\")");
+		PyRun_SimpleString("sys.path.append(\"C:/Projet/ModernOpenglGB/source/include/Core/Python\")");
+		PyRun_SimpleString("print(sys.path)");
+
+		std::string l = path.parent_path().generic_string();
+		std::string moduleName = path.stem().generic_string();
+		std::string commaLine = "sys.path.append(\"" + l + "\")";
+
+		std::string currentDir = "current_directory = os.getcwd() + \"/" + l + "\"";
+		PyRun_SimpleString(currentDir.c_str());
+		PyRun_SimpleString("print(current_directory)");
+
+		PyRun_SimpleString("sys.path.append(current_directory)");
+		PyRun_SimpleString("print(sys.path)");
+
+		PyObject* pName = nullptr;
+		PyObject* pModule = nullptr;
+		pName = PyUnicode_FromString(moduleName.c_str());
+		const char* utf8String = PyUnicode_AsUTF8(pName);
+		std::string debuf = utf8String;
+		pModule = PyImport_Import(pName);
+
+		PyObject* pFunc = PyObject_GetAttrString(pModule, funcame.c_str());
+
+
+		PyObject_CallObject(pFunc, NULL);
+		
+
+		Py_Finalize();
+
 	}
 
 

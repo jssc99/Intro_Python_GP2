@@ -54,6 +54,15 @@ void ResourcesManager::LoadAllAssets(const std::string& projectFolder)
 	for (const auto& entry : std::filesystem::directory_iterator(projectFolder))
 			LookFiles(entry.path());
 	
+	/*
+	// LoadScript 
+	fs::path scriptPath("PythonSource");
+
+	for (const auto& entry : fs::directory_iterator(scriptPath)) 
+	{
+		LoadScript(entry.path().c_str());
+	}
+	*/
 
 
 
@@ -167,8 +176,7 @@ void ResourcesManager::LoadTexture(fs::path path)
 
 	if (ResourcesManager::IsTexture(path_string))
 	{
-		Create<Texture>(path);
-		
+		Create<Texture>(path);		
 	}
 }
 
@@ -229,6 +237,8 @@ void ResourcesManager::LoadShader(std::filesystem::path path)
 }
 void ResourcesManager::LoadScript(std::filesystem::path path)
 {
+
+
 	if (ResourcesManager::IsPythonScript(path.generic_string()))
 	{
 		Create<PythonSource>(path);

@@ -9,7 +9,6 @@ class CpyInstance
 		Py_Initialize();
 		PyRun_SimpleString("import sys");
 		PyRun_SimpleString("sys.path.append(\".\")");
-		PyRun_SimpleString("sys.path.append(\"../PythonToEmbed/\")");
 
 	}
 

@@ -12,6 +12,8 @@ public:
 
 	void Init(Scene* scene) override
 	{
+		// TO DO Fix
+		return;
 		pythonSource->CallFunction("Init");
 	}
 	void Awake(Scene* scene) override
@@ -44,6 +46,10 @@ public:
 	}
 	void OnResizeData(uint32_t ComponentTypeID, std::vector<uint8_t>* data) override
 	{
+
+		// TO DO DONT ZWORK
+		return;
+
 		pythonSource->CallFunction("OnResizeData");
 	}
 
