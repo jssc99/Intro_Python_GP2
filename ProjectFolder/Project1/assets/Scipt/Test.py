@@ -19,5 +19,5 @@ def Update(scene : Scene ) :
 
 
 def UpdateCam(camera) :
-    print("marex")
+    print("reload")
     return

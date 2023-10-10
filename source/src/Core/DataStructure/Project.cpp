@@ -36,29 +36,28 @@
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
 
+
+
+
+
 void Project::Update()
 {
-	
-
 	std::vector<InputEvent*> inputsEvents;
-
-	// reload python Script
+	// Reload python Script
 	if(ImGui::IsKeyPressed(ImGuiKey_F5,false) )
 	{
 		resourcesManager.ReloadResources<PythonSource>();
-
 		for (IEcsSystem* sys : currentScene->m_registerScene.systems)
 		{
 			PythonScript* scr = dynamic_cast<PythonScript*>(sys);
 			if(scr != nullptr) 
 			{
-				PythonSource** ptr2 = scr->GetPythonPTR();
-				*ptr2 = resourcesManager.GetElement<PythonSource>("Test.py");
+				PythonSource* ptr2 = scr->GetPythonPTR();
+				std::string modulename = ptr2->GetModuleName();
+				ptr2 = resourcesManager.GetElement<PythonSource>(modulename);
 			}
 		}
-
 	}
-
 	shaderShadowMapping = resourcesManager.GetElement<Shader>("ShadowMapping");
 
 
@@ -158,22 +157,7 @@ void Project::InitScene()
 
 	
 	currentScene->AddSystem(new RumicsCube());
-	/*
 	
-	Entity* plane = currentScene->CreateEntity();
-	currentScene->AddComponent<MeshRenderer>(plane);
-	MeshRenderer* planerdr = currentScene->GetComponent<MeshRenderer>(plane);
-	currentScene->GetComponent<Transform>(plane)->scaling = Vector3(25, 0.1, 25);
-	currentScene->GetComponent<Transform>(plane)->pos = Vector3(0, -0.5f, 0);
-	planerdr->mesh = *ressourcesManager.GetElement<Mesh>("cube.obj");
-	planerdr->material.diffuse = *ressourcesManager.GetElement<Texture>("DiamondBlock.jpg");
-	planerdr->material.specular = *ressourcesManager.GetElement<Texture>("DiamondBlock.jpg");
-
-
-	*/
-
-
-
 	//currentScene->AddComponent<Rigidbody>(entity2);
 
 	

@@ -62,9 +62,9 @@ public:
 
 	};
 
-	PythonSource** GetPythonPTR() 
+	PythonSource* GetPythonPTR() 
 	{
-		return &pythonSource;
+		return pythonSource;
 	}
 private:
 	PythonSource* pythonSource = nullptr;

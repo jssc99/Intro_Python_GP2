@@ -11,14 +11,12 @@ public :
 
 	void Reload() override 
 	{
-		std::string moduleName = path.stem().generic_string();
-
-		m_pName = PyUnicode_FromString(moduleName.c_str());
-		const char* utf8String = PyUnicode_AsUTF8(m_pName);
+		m_pModule = nullptr;
 		m_pModule = PyImport_Import(m_pName);
 
-		if (m_pName == nullptr || m_pModule == nullptr)
-			throw std::bad_exception();
+		PyObject* m_orig = m_pModule;
+		m_pModule = PyImport_ReloadModule(m_pModule);
+		Py_DECREF(m_orig);
 	}
 
 	std::string EraseFormat(const fs::path& path) 
@@ -110,6 +108,10 @@ public :
 
 	}
 
+	std::string GetModuleName() 
+	{
+		return path.stem().generic_string();
+	}
 
 
 	bool IsNull() 
@@ -120,10 +122,10 @@ public :
 		return false;
 	}
 	
-
-private : 
 	PyObject* m_pName = nullptr;
 	PyObject* m_pModule = nullptr;
+private : 
+
 	const fs::path path;
 
 };
