@@ -14,6 +14,7 @@ public:
 	virtual void InitResource() {  };
 	virtual ~IResource() {};
 	virtual void DeleteResource() { };
+	virtual void Reload() { };
 }; 
 
 

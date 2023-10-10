@@ -126,6 +126,19 @@ public:
 	static constexpr std::string GetFragmentShaderFormat() { return ResourcesManager::fragmentShaderFormat; }
 	static constexpr std::string GetGeometryShaderFormat() { return ResourcesManager::geometryShaderFormat; }
 
+	template<class T>
+	void ReloadResources() 
+	{
+		for (auto it = m_mainResourcesMap.begin(); it != m_mainResourcesMap.end(); it++)
+		{
+			T* ptr = nullptr;
+			ptr = dynamic_cast<T*>(it->second);
+			if(ptr != nullptr) 
+			{
+				ptr->Reload();
+			}
+		}
+	}
 
 
 private:

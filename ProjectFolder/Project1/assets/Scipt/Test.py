@@ -15,6 +15,9 @@ def FixedUpdate(scene: Scene):
     return
 
 def Update(scene : Scene ) : 
-    t : Entity = scene.GetEntities(1)
-    print(t.GetID())
+    return
 
+
+def UpdateCam(camera) :
+    print("marex")
+    return

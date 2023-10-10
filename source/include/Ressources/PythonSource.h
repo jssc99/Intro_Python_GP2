@@ -8,8 +8,18 @@
 class PythonSource : public IResource  
 {
 public : 
-	static inline std::string abpass = "C:/Projet/ModernOpenglGB/";
 
+	void Reload() override 
+	{
+		std::string moduleName = path.stem().generic_string();
+
+		m_pName = PyUnicode_FromString(moduleName.c_str());
+		const char* utf8String = PyUnicode_AsUTF8(m_pName);
+		m_pModule = PyImport_Import(m_pName);
+
+		if (m_pName == nullptr || m_pModule == nullptr)
+			throw std::bad_exception();
+	}
 
 	std::string EraseFormat(const fs::path& path) 
 	{
@@ -28,9 +38,6 @@ public :
 			
 
 		// add Core Python c++ to sys path
-		 
-
-
 		 std::string l = path.parent_path().generic_string();
 		 std::string moduleName = path.stem().generic_string();
 		 std::string commaLine = "sys.path.append(\"" + l + "\")";
@@ -70,9 +77,10 @@ public :
 
 	void CallFunction(std::string funcame,Scene* scene)
 	{	
+		
 
 		PyObject* pFunc = PyObject_GetAttrString(m_pModule, funcame.c_str());
-		PyObject* pScene = PyCapsule_New(scene, nullptr, nullptr);
+		PyObject* pScene = PyCapsule_New(scene,nullptr, nullptr);
 		PyObject* pArgs = PyTuple_Pack(1, pScene);
 
 		if (pFunc == nullptr || !PyCallable_Check(pFunc))
@@ -81,10 +89,27 @@ public :
 		}
 		PyObject_CallObject(pFunc, pArgs);
 
-		Py_XDECREF(pArgs);
 
 
 	}
+	void CallFunction(std::string funcame, Camera* cam)
+	{
+
+
+		PyObject* pFunc = PyObject_GetAttrString(m_pModule, funcame.c_str());
+		PyObject* pcam = PyCapsule_New(cam, nullptr, nullptr);
+		PyObject* pArgs = PyTuple_Pack(1, pcam);
+
+		if (pFunc == nullptr || !PyCallable_Check(pFunc))
+		{
+			return;
+		}
+		PyObject_CallObject(pFunc, pArgs);
+
+
+
+	}
+
 
 
 	bool IsNull() 

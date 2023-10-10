@@ -57,6 +57,9 @@ Transform* Scene::GetComponent_Transform(Entity* entity) {
 %include <std_map.i>
 %include "std_unordered_map.i"
 
+
+%include "../source/include/LowRenderer/Cam/Camera.h"
+
 %include "../source/include/Core/Math/Vector2.h"
 %include "../source/include/Core/Math/Vector3.h"
 %include "../source/include/Core/Math/Vector4.h"
@@ -67,9 +70,19 @@ Transform* Scene::GetComponent_Transform(Entity* entity) {
 
 %include "../source/include/External/glad/glad.h"
 
+
+%include "../source/include/Core/ECS/IECSSystem.h"
+%include "../source/include/Core/ECS/PythonScript.h"
+%include "../source/include/Physics/GraphScene/GraphScene.h"
+
 %include "../source/include/Core/ECS/Component.h"
 %include "../source/include/Core/ECS/ECSComponent.h"
 %template(EcsComponent_Transform) EcsComponent<Transform>;
+
+%include "../source/include/Physics/Transform/Transform.hpp"
+
+
+
 
 
 
@@ -80,9 +93,11 @@ Transform* Scene::GetComponent_Transform(Entity* entity) {
 %include "../source/include/Core/ECS/Register.h"
 
 
+
 %template(ComponentsData) std::vector< std::pair<uint32_t, std::vector<uint8_t>* >>;
 %template(entities) std::vector<Entity*>;
 %template(systems) std::vector<IEcsSystem*>;
+
 
 
 
@@ -90,19 +105,11 @@ Transform* Scene::GetComponent_Transform(Entity* entity) {
 %include "../source/include/Ressources/Texture/Texture.hpp"
 
 %include "../source/include/Core/ECS/Scene.h"
-%include "../source/include/Core/ECS/IECSSystem.h"
-%include "../source/include/Core/ECS/PythonScript.h"
-%include "../source/include/Physics/GraphScene/GraphScene.h"
-%include "../source/include/Physics/Transform/Transform.hpp"
 
 
 
 
 
-
-
-
-%include "../source/include/LowRenderer/Cam/Camera.h"
 
 
 

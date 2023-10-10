@@ -5,6 +5,7 @@
 #include "Core/Python/PythonObject.h"
 #include "Ressources/IResources/IResource.h"
 #include "Ressources/PythonSource.h"
+#include "LowRenderer/Cam/Camera.h"
 
 class PythonScript :public IEcsSystem
 {
@@ -29,7 +30,10 @@ public:
 	}
 	void FixedUpdate(Scene* scene) override
 	{
+		// TO DO 
+		pythonSource->CallFunction("UpdateCam", Camera::cam);
 		pythonSource->CallFunction("FixedUpdate",scene);
+
 	}
 	void Update(Scene* scene) override
 	{
@@ -57,6 +61,11 @@ public:
 	{
 
 	};
+
+	PythonSource** GetPythonPTR() 
+	{
+		return &pythonSource;
+	}
 private:
 	PythonSource* pythonSource = nullptr;
 };

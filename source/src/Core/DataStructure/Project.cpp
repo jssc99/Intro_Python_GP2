@@ -33,13 +33,32 @@
 
 #include"App/App.h"
 #include<Python.h>
-
+#include <GLFW/glfw3.h>
+#include <glad/glad.h>
 
 void Project::Update()
 {
 	
 
 	std::vector<InputEvent*> inputsEvents;
+
+	// reload python Script
+	if(ImGui::IsKeyPressed(ImGuiKey_F5,false) )
+	{
+		resourcesManager.ReloadResources<PythonSource>();
+
+		for (IEcsSystem* sys : currentScene->m_registerScene.systems)
+		{
+			PythonScript* scr = dynamic_cast<PythonScript*>(sys);
+			if(scr != nullptr) 
+			{
+				PythonSource** ptr2 = scr->GetPythonPTR();
+				*ptr2 = resourcesManager.GetElement<PythonSource>("Test.py");
+			}
+		}
+
+	}
+
 	shaderShadowMapping = resourcesManager.GetElement<Shader>("ShadowMapping");
 
 
