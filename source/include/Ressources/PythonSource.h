@@ -78,7 +78,9 @@ public :
 		
 
 		PyObject* pFunc = PyObject_GetAttrString(m_pModule, funcame.c_str());
-		PyObject* pScene = PyCapsule_New(scene,nullptr, nullptr);
+
+		PyObject* pScene = PyCapsule_New(scene, "s", nullptr);
+
 		PyObject* pArgs = PyTuple_Pack(1, pScene);
 
 		if (pFunc == nullptr || !PyCallable_Check(pFunc))

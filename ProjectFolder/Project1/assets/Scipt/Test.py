@@ -14,7 +14,8 @@ def Awake(scene: Scene):
 def FixedUpdate(scene: Scene):
     return
 
-def Update(scene : Scene ) : 
+def Update(scene : Scene ) :
+    
     return
 
 
