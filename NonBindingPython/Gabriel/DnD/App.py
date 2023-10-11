@@ -22,7 +22,7 @@ class App(object):
 
 
     def LoadJsonFile(self) : 
-        with open('bdd.json') as json_file:
+        with open('Gabriel/DnD/bdd.json') as json_file:
             data = json.load(json_file)
             ## Load warrior
             str = data['Warrior']

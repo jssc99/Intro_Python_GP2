@@ -248,8 +248,8 @@ orcNames = ["Drukk","Skrag","Grung","Thurg","Snark","Bront","Kragg","Glint","Vra
 	    "Grulk","Throk","Dorga","Snaga","Urnak","Gloth","Skorn","Brank","Gruft","Throk","Zogar","Krash","Gromm","Drulk","Norgo","Grush","Zarth","Gorka","Vrunk","Smork"]
 
 # load the class BDD
-with open('bdd.json', 'r') as jasonDetabase :
-	bdd : dict = json.load (jasonDetabase)
+with open('Jessica/bdd.json', 'r') as data :
+	bdd : dict = json.load (data)
 
 # GAME SETUP
 allEntity = [
