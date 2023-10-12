@@ -10,5 +10,8 @@ Sujet exploré:
 Dans ce sujet nous avons reussi a convertir la plus part du projet en py afin de poouvoir utiliser nos class c++ dans python 
 , et nous pouvons charger des scripts et les roload avec la touche F5 at runtime , malheureursement la class Scene la plus importante est inutilisable ce qui est dommage 
 car c'est elle qui contient tout les donner de la scene transform etc...
+Il ce peux que au telechargement du projet le FichierCorePython.pyd de se charge pas correctement pour ca il faut recompiler la librairie dans le projet PythonScript et remplacer l'ancient fichier avec le nouveau.
+Ps : Tout la partie python ne fonction que en Release.
+
 
 nous utilision Python 3.10 / 3.11.
