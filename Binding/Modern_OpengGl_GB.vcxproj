@@ -81,8 +81,8 @@
     <PublicIncludeDirectories>
     </PublicIncludeDirectories>
     <AllProjectIncludesArePublic>true</AllProjectIncludesArePublic>
-    <IncludePath>$(SolutionDir)\source\Include;$(SolutionDir)\source\Include\Math;$(SolutionDir)\source\Include\External;$(SolutionDir)\source\Include\LowRenderer;$(SolutionDir)\source\Include\Core;(SolutionDir)\source\Include\Core\Debug;$(SolutionDir)\source\Include\Core\DataStructure;$(SolutionDir)\source\Include\Core\DataStructure\Component;$(Python)\include</IncludePath>
-    <LibraryPath>$(SolutionDir)\source\src\External\lib;$(Python)\libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\source\Include;$(SolutionDir)\source\Include\Math;$(SolutionDir)\source\Include\External;$(SolutionDir)\source\Include\LowRenderer;$(SolutionDir)\source\Include\Core;(SolutionDir)\source\Include\Core\Debug;$(SolutionDir)\source\Include\Core\DataStructure;$(SolutionDir)\source\Include\Core\DataStructure\Component;$(Python)\include\</IncludePath>
+    <LibraryPath>$(SolutionDir)\source\src\External\lib;$(Python)\libs\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
