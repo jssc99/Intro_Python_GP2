@@ -7,10 +7,9 @@ Sujet exploré:
    Serie de taylor avec cos(x) et sin(x)	
 - Le D&D
 - Le Binding : 
-Dans ce sujet nous avons reussi a convertir la plus part du projet en py afin de poouvoir utiliser nos class c++ dans python 
-, et nous pouvons charger des scripts et les roload avec la touche F5 at runtime , malheureursement la class Scene la plus importante est inutilisable ce qui est dommage 
-car c'est elle qui contient tout les donner de la scene transform etc...
-Il ce peux que au telechargement du projet le FichierCorePython.pyd de se charge pas correctement pour ca il faut recompiler la librairie dans le projet PythonScript et remplacer l'ancient fichier avec le nouveau.
+Dans ce sujet nous avons reussi a convertir la plus part du projet en python afin de pouvoir utiliser nos class c++ dans python 
+, et nous pouvons charger des scripts et les reload avec la touche F5 en runtime ,nous qvons du mal a les passee nos class c++ dan python afin de pouvir les utiliser.
+Il ce peux que au telechargement du projet le FichierCorePython.pyd ne se charge pas correctement pour ca il faut recompiler la librairie dans le projet PythonScript et remplacer l'ancient fichier avec le nouveau qui ce situe dans le dossier script dans le project folder.
 Ps : Tout la partie python ne fonction que en Release.
 
 
