@@ -34,7 +34,7 @@ def output (out : str, gameLog) :
 
 def dumpOutput (gameLog) :
 	# open log, dump log in it
-	with open('log.json', 'w') as log :
+	with open('Jessica/log.json', 'w') as log :
 		json.dump (gameLog, log, indent=0, separators=(',', ''))
 	
 
