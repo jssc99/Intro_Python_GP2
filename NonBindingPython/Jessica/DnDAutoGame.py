@@ -1,9 +1,5 @@
 import random
-from sqlite3 import Timestamp
 import json
-
-
-random.seed(Timestamp.microsecond)
 
 
 def rollDice (_min : int, _max : int, nbRolls : int) :
